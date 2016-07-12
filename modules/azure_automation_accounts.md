@@ -33,7 +33,7 @@ To get started with Azure automation for Office 365 we need three things; PowerS
 
 ![aac2](pictures/modules/automation_accounts/azureautomation3.JPG)
 
-	Resource groups provide a way to monitor, control access, provision and manage billing for collections of assets that are required to run an application, or used by a client or company department. Azure Resource Manager (ARM) is the technology that works behind the scenes so that you can administer assets using these logical containers.
+`Resource groups provide a way to monitor, control access, provision and manage billing for collections of assets that are required to run an application, or used by a client or company department. Azure Resource Manager (ARM) is the technology that works behind the scenes so that you can administer assets using these logical containers.`
 
 - Click on "Assets" -> "Modules" -> "Browse gallery"
 
