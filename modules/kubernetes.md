@@ -68,7 +68,6 @@ http://kubernetes.io/docs/getting-started-guides/azure/
 	root@azure-kube:~# export AZURE_SUBSCRIPTION_ID="c6179f90-6865-40b7-9af8-d9bfc58049a3"
 	root@azure-kube:~# export AZURE_TENANT_ID="68763e3d-4615-4222-988f-90ba13e351e9"
 	root@azure-kube:~# export AZURE_RESOURCE_GROUP="UNINETT_ASM_Kubernetes"
-	root@azure-kube:~# export AZURE_RESOURCE_GROUP_PARAM="UNINETT_ASM_Kubernetes"
 	root@azure-kube:~# export AZURE_LOCATION="westeurope"
 	root@azure-kube:~# export AZURE_AUTH_METHOD="device"
 
@@ -161,7 +160,7 @@ Some warnings and errors in this output. Let`s look into the Azure Portal.
 ![kube4](pictures/modules/kubernetes/kube4.JPG)
 
 Looks like that the created Resource group "UNINETT_ASM_Kubernetes" is not used. Instead a new resource group "kube-20160713-080928" is created.
-This was working for some weeks ago, so something has changed.
+This was working for some weeks ago, so something has changed. Probably this will fix this issue: https://github.com/kubernetes/kubernetes/pull/28700
 
 
 	root@azure-kube:~/kubernetes/cluster# cd azure/
