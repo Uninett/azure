@@ -62,7 +62,7 @@ http://merill.net/2015/01/how-to-get-the-azure-ad-tenant-id-without-powershell/
 
 http://kubernetes.io/docs/getting-started-guides/azure/
 
-*Export environment variables*
+**Export environment variables**
 
 	root@azure-kube:~# export KUBERNETES_PROVIDER=azure
 	root@azure-kube:~# export AZURE_SUBSCRIPTION_ID="c6179f90-6865-40b7-9af8-d9bfc58049a3"
@@ -72,7 +72,7 @@ http://kubernetes.io/docs/getting-started-guides/azure/
 	root@azure-kube:~# export AZURE_LOCATION="westeurope"
 	root@azure-kube:~# export AZURE_AUTH_METHOD="device"
 
-### Download Kubernetes ###
+**Download Kubernetes**
 
 
 	root@azure-kube:~# curl -sS https://get.k8s.io | bash
@@ -103,7 +103,7 @@ http://kubernetes.io/docs/getting-started-guides/azure/
 
 This one failes on authentication. 
 
-### Start Kube-up ###
+**Start Kube-up**
 
 	root@azure-kube:~# cd kubernetes/cluster
 	root@azure-kube:~/kubernetes/cluster# ./kube-up.sh
@@ -171,7 +171,7 @@ This was working for some weeks ago, so something has changed.
 	drwxr-xr-x 2 root root 4096 Jul 13 08:11 kube-20160713-080928
 	root@azure-kube:~/kubernetes/cluster/azure/_deployments# cd kube-20160713-080928
 
-*This alters the current kubectl configuration to point at this cluster*
+**This alters the current kubectl configuration to point at this cluster**
 
 	root@azure-kube:~/kubernetes/cluster/azure/_deployments/kube-20160713-080928# ./util.sh configure-kubectl
 	Using system's kubectl: /usr/local/bin/kubectl
@@ -181,7 +181,7 @@ This was working for some weeks ago, so something has changed.
 	switched to context "kube-20160713-080928".
 	root@azure-kube:~/kubernetes/cluster/azure/_deployments/kube-20160713-080928#
 
-*Copy the private key itself to the master node*
+**Copy the private key itself to the master node**
 
 	root@azure-kube:~/kubernetes/cluster/azure/_deployments/kube-20160713-080928# ./util.sh copykey
 	Using system's kubectl: /usr/local/bin/kubectl
@@ -191,7 +191,7 @@ This was working for some weeks ago, so something has changed.
 	Warning: Permanently added 'kube-20160713-080928.westeurope.cloudapp.azure.com,23.97.150.57' (ECDSA) to the list of known hosts.
 	kube_rsa                                                                                                                                                                             100% 3243     3.2KB/s   00:00
 
-*SSH into master*
+**SSH into master**
 
 	root@azure-kube:~/kubernetes/cluster/azure/_deployments/kube-20160713-080928#
 	root@azure-kube:~/kubernetes/cluster/azure/_deployments/kube-20160713-080928# ./util.sh ssh
@@ -201,7 +201,7 @@ This was working for some weeks ago, so something has changed.
 	kube@kube-20160713-080928-vm-master ~ $ exit
 	Connection to kube-20160713-080928.westeurope.cloudapp.azure.com closed.
 
-*Try some kubectl commands*
+**Try kubectl commands**
 
 	root@azure-kube:~/kubernetes/cluster/azure/_deployments/kube-20160713-080928# kubectl get nodes
 	NAME                             STATUS                     AGE
@@ -209,12 +209,32 @@ This was working for some weeks ago, so something has changed.
 	kube-20160713-080928-vm-node-0   Ready                      18m
 	kube-20160713-080928-vm-node-1   Ready                      18m
 	kube-20160713-080928-vm-node-2   Ready                      18m
+	root@azure-kube:~/kubernetes/cluster/azure/_deployments/kube-20160713-080928#
+
+
 	root@azure-kube:~/kubernetes/cluster/azure/_deployments/kube-20160713-080928# kubectl get services
 	NAME         CLUSTER-IP   EXTERNAL-IP   PORT(S)   AGE
 	kubernetes   10.3.0.1     <none>        443/TCP   18m
+	root@azure-kube:~/kubernetes/cluster/azure/_deployments/kube-20160713-080928#
+
+
 	root@azure-kube:~/kubernetes/cluster/azure/_deployments/kube-20160713-080928# kubectl cluster-info
 	Kubernetes master is running at https://kube-20160713-080928.westeurope.cloudapp.azure.com:6443
 	root@azure-kube:~/kubernetes/cluster/azure/_deployments/kube-20160713-080928#
+
+**Adjust Azure Security Group**
+
+You probably want to access your Kubernetes Cluster from other places than your created Linux management server/VM.
+To do this you have to associate a Azure Security Group to your Kube Masters NIC (Network Interface).
+
+Locate the "Network Security Group" element created in the created Kube Resource Group.
+Click "Settings" -> "Network interfaces" -> Associate the Kube-xxx-yyy-nic-master 
+
+![kube5](pictures/modules/kubernetes/kube5.JPG)
+
+Default "Inbound security rules" is
+
+![kube6](pictures/modules/kubernetes/kube6.JPG)
 
 
 ### Weave-based ###
