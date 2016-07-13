@@ -14,25 +14,25 @@ This Server/VM can be on-premises (Physical HW or hypervisor) or on Azure VM (Or
 
 I choose to create a Debian 8.0 Jessie Linux VM on a on-premises HyperV-Cluster.
 
-### Install Docker ###
+**Install Docker**
 
 https://docs.docker.com/v1.8/installation/debian/#debian-jessie-80-64-bit
 
 	$ sudo apt-get update
 	$ sudo apt-get install docker.io
 
-### Install JQ ###
+**Install JQ**
 
 	apt-get install jq
 
-### Install NodeJs ###
+**Install NodeJs**
 
 https://nodejs.org/en/download/package-manager/#debian-and-ubuntu-based-linux-distributions
 
 	curl -sL https://deb.nodesource.com/setup_6.x | sudo -E bash -
 	sudo apt-get install -y nodejs
 
-### Install & Configure Kubectl ###
+**Install & Configure Kubectl**
 
 https://coreos.com/kubernetes/docs/latest/configure-kubectl.html
 
@@ -40,7 +40,7 @@ https://coreos.com/kubernetes/docs/latest/configure-kubectl.html
 	$ chmod +x kubectl
 	$ mv kubectl /usr/local/bin/kubectl
 	
-## Prepare Azure ##
+**Prepare Azure**
 
 https://portal.azure.com/
 
