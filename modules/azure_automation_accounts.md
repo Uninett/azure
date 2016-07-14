@@ -43,7 +43,7 @@ To get started with Azure automation for Office 365 we need three things; PowerS
 
 ![aac4](pictures/modules/automation_accounts/azureautomation5.JPG)
 
-Create a user (AutomateO365Cred@<tenant>.onmicrosoft.com) in AzureAD with "Global Admin" role assigned. This can be done by using Powershell script:
+Create a user (AutomateO365Cred@\<tenant\>.onmicrosoft.com) in AzureAD with "Global Admin" role assigned. This can be done by using Powershell script:
 - https://github.com/UNINETT/office365/blob/master/powershell/createAzureADGlobalAdmin.ps1
 
 Back in Azure Automation -> Click "Credentials" -> Add a credential -> Enter username and password for the user (AutomateO365Cred@<tenant>.onmicrosoft.com) created in AzureAD.
