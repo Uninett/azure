@@ -240,4 +240,9 @@ Default "Inbound security rules" is
 
 http://kubernetes.io/docs/getting-started-guides/coreos/azure/
 
+## Links ##
 
+- https://github.com/edevil/kubernetes-deployment
+- https://github.com/colemickens/azure-kubernetes-status
+- https://github.com/kubernetes/kubernetes/pull/28821
+- https://github.com/colemickens/azkube
