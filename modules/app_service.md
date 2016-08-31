@@ -52,8 +52,9 @@ App Service includes the web and mobile capabilities that we previously delivere
 
 ### Custom domain ###
 
-Probably the first thing to do is to add a custom domain to your Web App.
-In your DNS server create a CNAME record that links your custom domain to <yourAppName>.azurewebsites.net.
+Probably the first thing to do is to add a custom domain to your Web App. In your DNS server create a CNAME record that links your custom domain to <yourAppName>.azurewebsites.net.
+
+
 Example:
 
 	runemy@vltrd003:~$ dig o365.uninett.no CNAME
