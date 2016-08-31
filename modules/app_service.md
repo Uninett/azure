@@ -48,6 +48,40 @@ App Service includes the web and mobile capabilities that we previously delivere
 - Verify the VisualStudio Output -> Publish succeeded
 - Your Web App should now be available at http://<yourAppName>.azurewebsites.net
 
+### Custom domain ###
+
+Probably the first thing to do is to add a custom domain to your Web App.
+In your DNS server create a CNAME record that links your custom domain to <yourAppName>.azurewebsites.net.
+Example:
+
+	runemy@vltrd003:~$ dig o365.uninett.no CNAME
+	
+	; <<>> DiG 9.9.5-9+deb8u6-Debian <<>> o365.uninett.no CNAME
+	;; global options: +cmd
+	;; Got answer:
+	;; ->>HEADER<<- opcode: QUERY, status: NOERROR, id: 58851
+	;; flags: qr rd ra ad; QUERY: 1, ANSWER: 1, AUTHORITY: 0, ADDITIONAL: 1
+	
+	;; OPT PSEUDOSECTION:
+	; EDNS: version: 0, flags:; udp: 4096
+	;; QUESTION SECTION:
+	;o365.uninett.no.               IN      CNAME
+	
+	;; ANSWER SECTION:
+	o365.uninett.no.        3139    IN      CNAME   o365smartlink.azurewebsites.net.
+	
+	;; Query time: 1 msec
+	;; SERVER: 158.38.212.107#53(158.38.212.107)
+	;; WHEN: Wed Aug 31 11:27:05 CEST 2016
+	;; MSG SIZE  rcvd: 89
+	
+	runemy@vltrd003:~$
+
+- Give the "DNS hierarchy" some time to populate the new record.
+- Then in the Azure portal open your App Service -> Click "Custom Domain" -> Click "Add hostname" -> enter your custom domain
+
+![appService9](pictures/modules/app_services/azureAppService9.JPG)
+
 ## Links ##
 
 https://blogs.msdn.microsoft.com/waws/2014/10/01/mapping-a-custom-subdomain-to-an-azure-website/ 
