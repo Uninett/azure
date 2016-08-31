@@ -48,6 +48,8 @@ App Service includes the web and mobile capabilities that we previously delivere
 - Verify the VisualStudio Output -> Publish succeeded
 - Your Web App should now be available at http://<yourAppName>.azurewebsites.net
 
+![appService8](pictures/modules/app_services/azureAppService8.JPG)
+
 ### Custom domain ###
 
 Probably the first thing to do is to add a custom domain to your Web App.
